@@ -1,5 +1,5 @@
 <script setup>
-import { useCommonStore } from "@/stores/common";
+import { useCommonStore } from '@/stores/common';
 
 const commonStore = useCommonStore();
 </script>

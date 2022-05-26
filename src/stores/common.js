@@ -1,9 +1,9 @@
-import { defineStore } from "pinia";
+import { defineStore } from 'pinia';
 
 export const useCommonStore = defineStore({
-    id: "common",
+    id: 'common',
     state: () => ({
-        test: "commonTest",
+        test: 'commonTest',
     }),
     actions: {},
 });
