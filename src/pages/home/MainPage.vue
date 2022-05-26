@@ -1,3 +1,9 @@
+<script setup>
+import { useCommonStore } from "@/stores/common";
+
+const commonStore = useCommonStore();
+</script>
+
 <template>
-    <div>123</div>
+    <div>{{ commonStore.test }}</div>
 </template>
