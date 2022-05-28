@@ -4,6 +4,7 @@ import App from './App.vue';
 import router from './router';
 import { createPinia } from 'pinia';
 import '@/assets/css/index.css';
+import '@/assets/css/global.scss';
 
 import { createMetaManager } from 'vue-meta';
 
