@@ -1,4 +1,6 @@
 <script setup>
+import { computed } from 'vue';
+import { useRoute } from 'vue-router';
 import { useMeta } from 'vue-meta';
 import { useCommonStore } from '@/stores/common';
 import { version } from '../package.json';
@@ -9,6 +11,12 @@ useMeta({
 });
 
 const commonStore = useCommonStore();
+
+// Layout
+const route = useRoute();
+const blank = computed(() => {
+    return route.meta.blank;
+});
 
 /* eslint-disable-next-line */
 console.info(
@@ -26,7 +34,12 @@ console.info(
 
     <RouterView v-slot="{ Component }">
         <Transition name="page_fade">
-            <Component :is="Component" />
+            <Component v-if="blank" :is="Component" />
+            <section v-else>
+                <Transition name="page_fade">
+                    <Component :is="Component" />
+                </Transition>
+            </section>
         </Transition>
     </RouterView>
 

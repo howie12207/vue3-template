@@ -9,6 +9,15 @@ const router = createRouter({
             name: 'home',
             component: Home,
         },
+        // {
+        //     path: '/login',
+        //     name: 'login',
+        //     meta: {
+        //         blank: true,
+        //         noAuth: true,
+        //     },
+        //     component: Login,
+        // },
 
         {
             path: '/:pathMatch(.*)*',
