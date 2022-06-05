@@ -23,6 +23,11 @@ const router = createRouter({
             name: 'baseInput',
             component: () => import('@/sample/BaseInput.vue'),
         },
+        {
+            path: '/baseMask',
+            name: 'baseMask',
+            component: () => import('@/sample/BaseMask.vue'),
+        },
 
         {
             path: '/:pathMatch(.*)*',

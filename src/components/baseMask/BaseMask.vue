@@ -70,7 +70,7 @@ const style = computed(() => {
                         v-show="show"
                         :class="[
                             customClass ||
-                                'fixed top-1/2 left-1/2 max-h-[80vh] max-w-[90%] -translate-x-1/2 -translate-y-1/2 overflow-hidden',
+                                'fixed top-1/2 left-1/2 max-h-[80vh] max-w-[90%] -translate-x-1/2 -translate-y-1/2 overflow-hidden shadow-2xl',
                         ]"
                         @click.stop
                     >

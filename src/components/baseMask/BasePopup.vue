@@ -37,7 +37,7 @@ const props = defineProps({
     },
     animationPopup: {
         type: String,
-        default: 'slide-left',
+        default: 'slide-down',
         validator(value) {
             return ['', 'slide-down', 'slide-left'].includes(value);
         },
@@ -77,9 +77,9 @@ const style = computed(() => {
                     class="absolute top-4 right-4 cursor-pointer transition hover:opacity-80"
                     @click="close"
                 />
-                <div class="mb-4 pb-2 text-lg font-bold">{{ title }}</div>
+                <div v-if="title" class="mb-4 pb-2 text-lg font-bold">{{ title }}</div>
 
-                <div class="my-4 max-h-[calc(80vh_-_120px)] overflow-y-scroll">
+                <div class="my-4 max-h-[calc(80vh_-_120px)] overflow-y-auto">
                     <slot name="content" :close="close"></slot>
                 </div>
             </div>

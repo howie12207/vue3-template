@@ -107,7 +107,6 @@ const validate = async value => {
     let isValid = true;
     for (const item of props.rules) {
         const valid = await item.validate(value);
-        // console.log(123, value);
         if (valid) continue;
         isValid = false;
         errMsg.value = item.errMsg;
