@@ -33,10 +33,10 @@ console.info(
     </Metainfo>
 
     <RouterView v-slot="{ Component }">
-        <Transition name="page_fade">
+        <Transition name="page-fade">
             <Component v-if="blank" :is="Component" />
             <section v-else>
-                <Transition name="page_fade">
+                <Transition name="page-fade">
                     <Component :is="Component" />
                 </Transition>
             </section>

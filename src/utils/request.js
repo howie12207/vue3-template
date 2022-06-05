@@ -4,7 +4,7 @@ import axios from 'axios';
 // import { useUserInfoStore } from '@/stores/userInfo';
 
 const service = axios.create({
-    baseURL: 'https://data.gov.tw/api/front/dataset/options-list',
+    baseURL: '',
     timeout: 12000,
     headers: {},
 });

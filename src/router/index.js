@@ -18,6 +18,11 @@ const router = createRouter({
         //     },
         //     component: Login,
         // },
+        {
+            path: '/baseInput',
+            name: 'baseInput',
+            component: () => import('@/sample/BaseInput.vue'),
+        },
 
         {
             path: '/:pathMatch(.*)*',
