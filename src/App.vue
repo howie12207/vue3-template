@@ -5,6 +5,7 @@ import { useMeta } from 'vue-meta';
 import { useCommonStore } from '@/stores/common';
 import { version } from '../package.json';
 import BaseLoading from '@/components/baseLoading/BaseLoading.vue';
+import LayoutDefault from '@/layout/LayoutDefault.vue';
 
 useMeta({
     htmlAttrs: { lang: 'zh-TW' },
@@ -35,11 +36,11 @@ console.info(
     <RouterView v-slot="{ Component }">
         <Transition name="page-fade">
             <Component v-if="blank" :is="Component" />
-            <section v-else>
+            <LayoutDefault v-else>
                 <Transition name="page-fade">
                     <Component :is="Component" />
                 </Transition>
-            </section>
+            </LayoutDefault>
         </Transition>
     </RouterView>
 
