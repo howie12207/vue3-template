@@ -6,6 +6,7 @@ import { fileURLToPath, URL } from 'url';
 // Element plus
 import AutoImport from 'unplugin-auto-import/vite';
 import Components from 'unplugin-vue-components/vite';
+import ElementPlus from 'unplugin-element-plus/vite';
 import { ElementPlusResolver } from 'unplugin-vue-components/resolvers';
 
 export default defineConfig({
@@ -16,6 +17,10 @@ export default defineConfig({
         }),
         Components({
             resolvers: [ElementPlusResolver()],
+        }),
+        ElementPlus({
+            importStyle: 'SCSS',
+            useSource: true,
         }),
     ],
     resolve: {
