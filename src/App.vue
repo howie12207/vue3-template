@@ -19,9 +19,10 @@ const blank = computed(() => {
     return route.meta.blank;
 });
 
+const VITE_ENV = import.meta.env.VITE_ENV || import.meta.env.MODE;
 /* eslint-disable-next-line */
 console.info(
-    `version: %c${version}`,
+    `${VITE_ENV} version: %c${version}`,
     'color:white;background:#ff9f19;padding: 2px 0.5em; border-radius: 10px'
 );
 </script>
