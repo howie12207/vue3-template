@@ -1,5 +1,7 @@
-<script setup>
-import { ref, computed, nextTick } from 'vue';
+<script setup lang="ts">
+import { ref, computed } from 'vue';
+
+type InputValue = string;
 
 const props = defineProps({
     id: {
@@ -7,7 +9,7 @@ const props = defineProps({
         required: true,
     },
     modalValue: {
-        type: [String, Number],
+        type: String,
         default: '',
     },
     isValid: {
@@ -25,7 +27,7 @@ const props = defineProps({
     type: {
         type: String,
         default: 'text',
-        validator: value => ['text', 'password', 'number'].includes(value),
+        validator: (value: string) => ['text', 'password', 'number'].includes(value),
     },
     disabled: {
         type: Boolean,
@@ -36,11 +38,14 @@ const props = defineProps({
         default: '',
     },
     inputmode: {
-        type: String,
-        default: '',
+        type: String as () => 'text' | 'numeric' | 'decimal',
+        default: 'text',
     },
     rules: {
-        type: Array,
+        type: Array as () => Array<{
+            validate: (value: string) => Promise<boolean> | boolean;
+            errMsg: string;
+        }>,
         default: () => [],
     },
     upperCase: {
@@ -78,7 +83,7 @@ const clean = () => {
 };
 
 // Input
-const onInput = e => {
+const onInput = (e: { target: HTMLInputElement }) => {
     let value = e.target.value;
     if (props.upperCase) value = value.toUpperCase();
     emits('input', value);
@@ -87,12 +92,12 @@ const onInput = e => {
 };
 
 // Change
-const onChange = e => {
+const onChange = (e: { target: HTMLInputElement }) => {
     emits('change', e);
 };
 
 // Blur
-const onBlur = e => {
+const onBlur = (e: { target: HTMLInputElement }) => {
     activate.value = true;
     validate(e.target.value);
     emits('blur', e);
@@ -100,7 +105,7 @@ const onBlur = e => {
 
 // Validate
 const activate = ref(false);
-const validate = async value => {
+const validate = async (value: InputValue) => {
     // no rules return valid tur
     if (props.rules.length === 0) emits('update:isValid', true);
 

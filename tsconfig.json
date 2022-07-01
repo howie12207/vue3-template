@@ -1,0 +1,15 @@
+{
+    "extends": "@vue/tsconfig/tsconfig.web.json",
+    "include": ["env.d.ts", "src/**/*.ts", "src/**/*.vue", "package.json"],
+    "compilerOptions": {
+        "composite": true,
+        "baseUrl": ".",
+        "paths": {
+            "@/*": ["./src/*"],
+            "@fortawesome/fontawesome-common-types": [
+                "./node_modules/@fortawesome/fontawesome-common-types/index"
+            ]
+        },
+        "types": ["element-plus/global"]
+    }
+}

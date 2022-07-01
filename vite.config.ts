@@ -14,6 +14,7 @@ export default ({ mode }) => {
     process.env = { ...process.env, ...loadEnv(env, process.cwd()) };
 
     return defineConfig({
+        base: process.env.VITE_BASE_URL,
         plugins: [
             vue(),
             AutoImport({
@@ -23,7 +24,6 @@ export default ({ mode }) => {
                 resolvers: [ElementPlusResolver()],
             }),
             ElementPlus({
-                importStyle: 'SCSS',
                 useSource: true,
             }),
         ],

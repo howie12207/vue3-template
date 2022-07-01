@@ -1,19 +1,22 @@
-<script setup>
+<script setup lang="ts">
 import { ref, reactive } from 'vue';
 import { useMeta } from 'vue-meta';
 import BaseInput from '@/components/baseInput/BaseInput.vue';
 import { required, email, url, idNumber, atLeast } from '@/components/baseInput/rules';
+import type { Ref } from 'vue';
+
+type BaseInput = Ref<{ validateNow: (val?: string) => void } | null>;
 
 useMeta({
     title: 'Sample BaseInput',
 });
 
-const accountRef = ref(null);
-const passwordRef = ref(null);
-const emailRef = ref(null);
-const urlRef = ref(null);
-const idNumberRef = ref(null);
-const verifyCodeRef = ref(null);
+const accountRef: BaseInput = ref(null);
+const passwordRef: BaseInput = ref(null);
+const emailRef: BaseInput = ref(null);
+const urlRef: BaseInput = ref(null);
+const idNumberRef: BaseInput = ref(null);
+const verifyCodeRef: BaseInput = ref(null);
 
 const formData = reactive({
     account: '123',
@@ -36,7 +39,7 @@ const validList = reactive({
 const rules = {
     account: [
         {
-            validate: value => {
+            validate: (value: string) => {
                 return test(value);
             },
             errMsg: '錯誤',
@@ -51,18 +54,18 @@ const rules = {
 
 const validateAll = async () => {
     const res = await Promise.all([
-        accountRef.value.validateNow(),
-        passwordRef.value.validateNow(),
-        emailRef.value.validateNow(),
-        urlRef.value.validateNow(),
-        idNumberRef.value.validateNow(),
-        verifyCodeRef.value.validateNow(),
+        accountRef.value?.validateNow(),
+        passwordRef.value?.validateNow(),
+        emailRef.value?.validateNow(),
+        urlRef.value?.validateNow(),
+        idNumberRef.value?.validateNow(),
+        verifyCodeRef.value?.validateNow(),
     ]);
     /* eslint-disable-next-line */
     console.log(res);
 };
 
-const test = async value => {
+const test = async (value: string | number) => {
     const res = await new Promise(res => {
         setTimeout(() => {
             res('123');

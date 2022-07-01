@@ -1,4 +1,4 @@
-<script setup>
+<script setup lang="ts">
 import { ref } from 'vue';
 import { useMeta } from 'vue-meta';
 import BaseMask from '@/components/baseMask/BaseMask.vue';
@@ -9,7 +9,7 @@ useMeta({
 });
 
 const popupTarget = ref('');
-const switchPopup = target => {
+const switchPopup = (target: string) => {
     popupTarget.value = target;
 };
 </script>

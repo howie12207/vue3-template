@@ -1,4 +1,4 @@
-<script setup>
+<script setup lang="ts">
 import { useCommonStore } from '@/stores/common';
 import { useMeta } from 'vue-meta';
 

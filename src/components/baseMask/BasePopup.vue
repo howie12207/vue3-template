@@ -1,4 +1,4 @@
-<script setup>
+<script setup lang="ts">
 import { computed } from 'vue';
 import BaseMask from './BaseMask.vue';
 
@@ -31,14 +31,14 @@ const props = defineProps({
     animationMask: {
         type: String,
         default: 'fade',
-        validator(value) {
+        validator(value: string) {
             return ['', 'fade'].includes(value);
         },
     },
     animationPopup: {
         type: String,
         default: 'slide-down',
-        validator(value) {
+        validator(value: string) {
             return ['', 'slide-down', 'slide-left'].includes(value);
         },
     },
