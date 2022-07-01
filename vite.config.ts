@@ -18,9 +18,11 @@ export default ({ mode }) => {
         plugins: [
             vue(),
             AutoImport({
+                dts: false,
                 resolvers: [ElementPlusResolver()],
             }),
             Components({
+                dts: false,
                 resolvers: [ElementPlusResolver()],
             }),
             ElementPlus({

@@ -1,7 +1,25 @@
-# Vue 3 + Vite
+# Vue3 template
 
-This template should help get you started developing with Vue 3 in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+This is a vue3 template.
 
-## Recommended IDE Setup
+## Structure
 
--   [VS Code](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar)
+Vite + Vue3 + Pinia + Tailwind + Typescript
+
+## Plugins
+
+| Name           | Description                   |
+| -------------- | ----------------------------- |
+| [tailwind]     | A utility-first CSS framework |
+| [element-plus] | UI library                    |
+| [vue-meta]     | Manage HTML metadata          |
+| [fontawesome]  | Icon library                  |
+| [eslint]       | Check JS code                 |
+| [typescript]   | Syntax for types              |
+
+[tailwind]: https://github.com/tailwindlabs/tailwindcss
+[element-plus]: https://github.com/element-plus/element-plus
+[vue-meta]: https://github.com/nuxt/vue-meta
+[fontawesome]: https://github.com/FortAwesome
+[eslint]: https://github.com/eslint/eslint
+[typescript]: https://github.com/microsoft/TypeScript
