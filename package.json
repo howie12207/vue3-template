@@ -8,7 +8,15 @@
         "build": "vite build",
         "preview": "vite preview",
         "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore",
-        "lint:css": "stylelint **/*.{vue,css,scss}"
+        "lint:css": "stylelint **/*.{vue,css,scss}",
+        "lint:ts": "vue-tsc --noEmit -p tsconfig.json --composite false",
+        "prepare": "husky install"
+    },
+    "lint-staged": {
+        "*.{js,vue,jsx,cjs,mjs,ts,tsx,cts,mts}": "eslint",
+        "*.{css,scss,sass,vue}": "stylelint",
+        "*.{css,scss,sass,vue,js,ts}": "prettier --check --ignore-unknown",
+        "*.{vue,ts}": "bash -c 'npm run lint:ts'"
     },
     "dependencies": {
         "@fortawesome/fontawesome-svg-core": "^6.1.1",
@@ -22,15 +30,20 @@
         "vue-router": "^4.0.15"
     },
     "devDependencies": {
+        "@commitlint/cli": "^17.0.3",
+        "@commitlint/config-conventional": "^17.0.3",
         "@rushstack/eslint-patch": "^1.1.3",
         "@types/node": "^18.0.0",
         "@vitejs/plugin-vue": "^2.3.3",
         "@vue/eslint-config-prettier": "^7.0.0",
+        "@vue/eslint-config-typescript": "^11.0.0",
         "@vue/tsconfig": "^0.1.3",
         "autoprefixer": "^10.4.7",
         "cross-env": "^7.0.3",
         "eslint": "^8.16.0",
         "eslint-plugin-vue": "^9.0.1",
+        "husky": "^8.0.1",
+        "lint-staged": "^13.0.3",
         "postcss": "^8.4.14",
         "postcss-html": "^1.4.1",
         "prettier": "2.6.2",
@@ -45,6 +58,7 @@
         "unplugin-auto-import": "^0.8.5",
         "unplugin-element-plus": "^0.4.0",
         "unplugin-vue-components": "^0.19.6",
-        "vite": "^2.9.9"
+        "vite": "^2.9.9",
+        "vue-tsc": "^0.38.2"
     }
 }
